@@ -47,4 +47,8 @@ public class RoomService {
         return rooms.values();
     }
 
+    public void deleteRoom(String roomId) {
+        rooms.remove(roomId);
+    }
+
 }
