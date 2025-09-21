@@ -1,6 +1,5 @@
 package com.paritosh.webinge.service;
 
-import com.paritosh.webinge.config.WebSocketConfig;
 import com.paritosh.webinge.model.Member;
 import com.paritosh.webinge.model.Room;
 import org.springframework.stereotype.Service;
