@@ -1,12 +1,13 @@
 package com.paritosh.webinge.service;
 
-import com.paritosh.webinge.model.Room;
-import lombok.extern.slf4j.Slf4j;
+import java.time.Instant;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.time.Instant;
-import java.util.stream.Collectors;
+import com.paritosh.webinge.model.Room;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
@@ -14,7 +15,7 @@ public class RoomCleanupSchedular {
 
     private final RoomService roomService;
 
-    private long roomTtlSeconds = 86400;
+    private final long roomTtlSeconds = 86400;
 
     public RoomCleanupSchedular(RoomService roomService) {
         this.roomService = roomService;
