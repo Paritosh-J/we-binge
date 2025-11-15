@@ -81,6 +81,7 @@ public class SignalingWebSocketHandler extends TextWebSocketHandler {
     private void broadcastToRoom(String roomId, TextMessage message, String excludeSessionId) {
         var roomOpt = roomService.getRoom(roomId);
         if (roomOpt.isEmpty()) return;
+
         var participants = roomOpt.get().getMembers();
         participants.forEach((sid, part) -> {
             try {
@@ -96,11 +97,14 @@ public class SignalingWebSocketHandler extends TextWebSocketHandler {
 
     private String extractRoomId(URI uri) {
         if (uri == null) return "";
+
         String path = uri.getPath(); // e.g. /ws/room/1234
         String[] segs = path.split("/");
+
         if (segs.length >= 3) {
             return segs[segs.length - 1];
         }
+
         return "";
     }
 
